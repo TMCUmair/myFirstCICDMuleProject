@@ -41,6 +41,8 @@
 				      <workerType>${vCore}</workerType>
 				      <workers>${workers}</workers>
 				      <objectStoreV2>true</objectStoreV2>
+				      <clientId>${anypoint.ANYPOINT_CLIENT_ID}</clientId>
+    				     <clientSecret>${anypoint.ANYPOINT_CLIENT_SECRET}</clientSecret>
 				    </cloudHubDeployment>
 				</configuration>
 			</plugin>
