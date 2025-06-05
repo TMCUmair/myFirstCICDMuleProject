@@ -38,7 +38,7 @@
 				      <applicationName>${appname}</applicationName>
 				      <businessGroup>${business}</businessGroup>
 				      <environment>${env}</environment>
-				      <workType>Micro</workType>
+				      <workerType>Micro</workerType>
 				      <workers>${workers}</workers>
 				      <objectStoreV2>true</objectStoreV2>
 				    </cloudHubDeployment>
