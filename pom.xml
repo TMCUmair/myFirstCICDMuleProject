@@ -36,12 +36,11 @@
 				      <username>${anypoint.username}</username>
 				      <password>${anypoint.password}</password>
 				      <applicationName>${appname}</applicationName>
+				      <businessGroup>${business}</businessGroup>
 				      <environment>${env}</environment>
+				      <workType>${vCore}</workType>
 				      <workers>${workers}</workers>
 				      <objectStoreV2>true</objectStoreV2>
-				      <properties>
-				        <key>value</key>
-				      </properties>
 				    </cloudHubDeployment>
 				</configuration>
 			</plugin>
