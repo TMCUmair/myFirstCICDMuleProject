@@ -25,33 +25,31 @@
 				<version>3.2.0</version>
 			</plugin>
 			<plugin>
-				<groupId>org.mule.tools.maven</groupId>
-				<artifactId>mule-maven-plugin</artifactId>
-				<version>${mule.maven.plugin.version}</version>
-				<extensions>true</extensions>
-				<configuration>
-				<classifier>mule-application</classifier>
-				  <cloudHub2Deployment>
-				      <uri>https://anypoint.mulesoft.com</uri>
-				      <provider>MC</provider>
-				      <muleVersion>${app.runtime}</muleVersion>
-				      <username>${anypoint.username}</username>
+			    <groupId>org.mule.tools.maven</groupId>
+			    <artifactId>mule-maven-plugin</artifactId>
+			    <version>4.4.0</version> <!-- Recommended to upgrade -->
+			    <extensions>true</extensions>
+			    <configuration>
+			        <deploymentType>cloudhub-2</deploymentType> <!-- Explicitly declare deployment type -->
+			        <cloudHub2Deployment>
+			            <uri>https://anypoint.mulesoft.com</uri>
+			            <target>
+			                <organizationName>${businessGroup}</organizationName> <!-- Changed from environment to target -->
+			                <environmentName>Sandbox</environmentName> <!-- Changed from environment to environmentName -->
+			            </target>
+			            <applicationName>${appname}</applicationName>
+			            <runtimeVersion>${app.runtime}</runtimeVersion>
+					 <username>${anypoint.username}</username>
 				      <password>${anypoint.password}</password>
-				      <applicationName>${appname}</applicationName>
-				      <environment>Sandbox</environment>
-				      <target>Cloudhub-US-East-2</target>
-				      <server>Repository</server>
-				      <releaseChannel>NONE</releaseChannel>
-				      <region>${region}</region>
-					  <workerType>${vCore}</workerType>
-					  <workers>${workers}</workers>
-				      <objectStoreV2>true</objectStoreV2>
-				      <vCores>0.1</vCores>
-				      <deploymentSettings>
-				      	<generateDefaultPublicUrl>true</generateDefaultPublicUrl>
-				      </deploymentSettings>
-				    </cloudHub2Deployment>
-				</configuration>
+			            <replicas>${workers}</replicas> <!-- workers is now replicas in CH2 -->
+			            <region>us-east-2</region> <!-- Fixed region format -->
+			            <vCores>0.1</vCores>
+			            <objectStoreV2>true</objectStoreV2>
+			            <deploymentSettings>
+			                <generateDefaultPublicUrl>true</generateDefaultPublicUrl>
+			            </deploymentSettings>
+			        </cloudHub2Deployment>
+			    </configuration>
 			</plugin>
 		</plugins>
 	</build>
