@@ -2,9 +2,9 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.mycompany</groupId>
+	<groupId>e3b0e0f0-d039-4fbd-9246-48ddcb996c56</groupId>
 	<artifactId>myfirstmulecicdproject</artifactId>
-	<version>1.0.0-SNAPSHOT</version>
+	<version>1.0.0</version>
 	<packaging>mule-application</packaging>
 
 	<name>myfirstmulecicdproject</name>
@@ -15,7 +15,6 @@
 
 		<app.runtime>4.9.0</app.runtime>
 		<mule.maven.plugin.version>4.3.0</mule.maven.plugin.version>
-		<mule.version>4.9.0</mule.version>
 	</properties>
 
 	<build>
@@ -31,19 +30,27 @@
 				<version>${mule.maven.plugin.version}</version>
 				<extensions>true</extensions>
 				<configuration>
-					<deploymentType>cloudhub-2</deploymentType>
-					<cloudHub2Deployment>
-						<uri>https://anypoint.mulesoft.com</uri>
-						<muleVersion>${mule.version}</muleVersion>
-						<username>${anypoint.username}</username>
-						<password>${anypoint.password}</password>
-						<applicationName>${appname}</applicationName>
-						<businessGroup>${business}</businessGroup>
-						<environment>${env}</environment>
-						<workerType>${vCore}</workerType>
-						<workers>${workers}</workers>
-						<objectStoreV2>true</objectStoreV2>
-					</cloudHub2Deployment>
+				<classifier>mule-application</classifier>
+				  <cloudHub2Deployment>
+				      <uri>https://anypoint.mulesoft.com</uri>
+				      <provider>MC</provider>
+				      <muleVersion>${app.runtime}</muleVersion>
+				      <username>${anypoint.username}</username>
+				      <password>${anypoint.password}</password>
+				      <applicationName>${appname}</applicationName>
+				      <environment>Sandbox</environment>
+				      <target>Cloudhub-US-East-2</target>
+				      <server>Repository</server>
+				      <releaseChannel>NONE</releaseChannel>
+				      <region>${region}</region>
+					  <workerType>${vCore}</workerType>
+					  <workers>${workers}</workers>
+				      <objectStoreV2>true</objectStoreV2>
+				      <vCores>0.1</vCores>
+				      <deploymentSettings>
+				      	<generateDefaultPublicUrl>true</generateDefaultPublicUrl>
+				      </deploymentSettings>
+				    </cloudHub2Deployment>
 				</configuration>
 			</plugin>
 		</plugins>
@@ -90,4 +97,5 @@
 			</snapshots>
 		</pluginRepository>
 	</pluginRepositories>
+
 </project>
