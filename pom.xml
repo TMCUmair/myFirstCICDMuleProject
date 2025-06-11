@@ -38,7 +38,7 @@
 				      <muleVersion>${app.runtime}</muleVersion>
 				      <username>Umair_Techmatrix</username>
 				      <password>Tmc@12345</password>
-				      <applicationName>myFirstCICDMuleProject</applicationName>
+				      <applicationName>myfirstmulecicdproject</applicationName>
 				      <replicas>1</replicas>
 				      <vCores>1</vCores>
 				      <deploymentSettings>
