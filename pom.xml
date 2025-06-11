@@ -39,8 +39,6 @@
 							<connectedAppGrantType>client_credentials</connectedAppGrantType> -->
 						<applicationName>${cloudhub.application.name}</applicationName>
 						<environment>Sandbox</environment>
-						<workers>1</workers>
-						<workerType>MICRO</workerType>
 					</cloudhub2Deployment>
 					<classifier>mule-application</classifier>
 				</configuration>
