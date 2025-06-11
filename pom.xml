@@ -25,31 +25,36 @@
 				<version>3.2.0</version>
 			</plugin>
 			<plugin>
-			    <groupId>org.mule.tools.maven</groupId>
-			    <artifactId>mule-maven-plugin</artifactId>
-			    <version>4.4.0</version> <!-- Recommended to upgrade -->
-			    <extensions>true</extensions>
-			    <configuration>
-			        <deploymentType>cloudhub-2</deploymentType> <!-- Explicitly declare deployment type -->
-			        <cloudHub2Deployment>
-			            <uri>https://anypoint.mulesoft.com</uri>
-			            <target>
-			                <organizationName>${businessGroup}</organizationName> <!-- Changed from environment to target -->
-			                <environmentName>Sandbox</environmentName> <!-- Changed from environment to environmentName -->
-			            </target>
-			            <applicationName>${appname}</applicationName>
-			            <runtimeVersion>${app.runtime}</runtimeVersion>
-					 <username>${anypoint.username}</username>
-				      <password>${anypoint.password}</password>
-			            <replicas>${workers}</replicas> <!-- workers is now replicas in CH2 -->
-			            <region>us-east-2</region> <!-- Fixed region format -->
-			            <vCores>0.1</vCores>
-			            <objectStoreV2>true</objectStoreV2>
-			            <deploymentSettings>
-			                <generateDefaultPublicUrl>true</generateDefaultPublicUrl>
-			            </deploymentSettings>
-			        </cloudHub2Deployment>
-			    </configuration>
+				<groupId>org.mule.tools.maven</groupId>
+				<artifactId>mule-maven-plugin</artifactId>
+				<extensions>true</extensions>
+				<configuration>
+					<cloudHubDeployment>
+						<uri>https://anypoint.mulesoft.com</uri>
+						<muleVersion>${app.runtime}</muleVersion>
+						<username>Umair_Techmatrix</username>
+						<password>Tmc@12345</password>
+						<!-- <connectedAppClientId>0d93fcf0e1e7429f95fa19fbfa62b2d5</connectedAppClientId> 
+							<connectedAppClientSecret>72560Ff527f847C0bB0d31De1a78F761</connectedAppClientSecret> 
+							<connectedAppGrantType>client_credentials</connectedAppGrantType> -->
+						<applicationName>${cloudhub.application.name}</applicationName>
+						<environment>Sandbox</environment>
+						<region>us-east-1</region>
+						<workers>1</workers>
+						<workerType>MICRO</workerType>
+						<properties>
+							<key1>value1</key1>
+							<key2>value2</key2>
+						</properties>
+					</cloudHubDeployment>
+					<sharedLibraries>
+						<sharedLibrary>
+							<groupId>mysql</groupId>
+							<artifactId>mysql-connector-java</artifactId>
+						</sharedLibrary>
+					</sharedLibraries>
+					<classifier>mule-application</classifier>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>
