@@ -25,23 +25,33 @@
 				<version>3.2.0</version>
 			</plugin>
 			<plugin>
-				<groupId>org.mule.tools.maven</groupId>
-				<artifactId>mule-maven-plugin</artifactId>
-				<extensions>true</extensions>
-				<configuration>
-					<cloudhub2Deployment>
-						<uri>https://anypoint.mulesoft.com</uri>
-						<muleVersion>${app.runtime}</muleVersion>
-						<username>Umair_Techmatrix</username>
-						<password>Tmc@12345</password>
-						<!-- <connectedAppClientId>0d93fcf0e1e7429f95fa19fbfa62b2d5</connectedAppClientId> 
-							<connectedAppClientSecret>72560Ff527f847C0bB0d31De1a78F761</connectedAppClientSecret> 
-							<connectedAppGrantType>client_credentials</connectedAppGrantType> -->
-						<applicationName>${cloudhub.application.name}</applicationName>
-						<environment>Sandbox</environment>
-					</cloudhub2Deployment>
-					<classifier>mule-application</classifier>
-				</configuration>
+				  <groupId>org.mule.tools.maven</groupId>
+				  <artifactId>mule-maven-plugin</artifactId>
+				  <version>3.7.1</version>
+				  <extensions>true</extensions>
+				  <configuration>
+				    <cloudhub2Deployment>
+				      <uri>https://anypoint.mulesoft.com</uri>
+				      <provider>MC</provider>
+				      <environment>Sandbox</environment>
+				      <target>Cloudhub-US-East-2</target>
+				      <muleVersion>${app.runtime}</muleVersion>
+				      <username>Umair_Techmatrix</username>
+				      <password>Tmc@12345</password>
+				      <applicationName>myFirstCICDMuleProject</applicationName>
+				      <replicas>1</replicas>
+				      <vCores>1</vCores>
+				      <deploymentSettings>
+				        <http>
+				          <inbound>
+				            <publicUrl>${publicURL}</publicUrl>
+				            <forwardSslSession>true</forwardSslSession>
+				            <lastMileSecurity>true</lastMileSecurity>
+				          </inbound>
+				        </http>
+				      </deploymentSettings>
+				    </cloudhub2Deployment>
+				  </configuration>
 			</plugin>
 		</plugins>
 	</build>
